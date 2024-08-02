@@ -39,9 +39,10 @@ public abstract class Tile {
     public static Color DEFAULT_COLOR = Color.LIGHT_GRAY;
 
     /**
+     * The nullable background color. If this is null {@link Tile#getBackgroundColor()} will return {@link Tile#DEFAULT_COLOR}
      * @return The background Color of the Tile
      */
-    public abstract Color getColor();
+    protected abstract Color getColor();
 
     /**
      * @return true if a top barrier is present; otherwise false
@@ -68,14 +69,21 @@ public abstract class Tile {
      */
     public abstract int getBalls();
 
+    /**
+     * @return The background Color of the Tile
+     */
+    public final Color getBackgroundColor() {
+        return getColor() == null ? DEFAULT_COLOR : getColor();
+    }
+
     public boolean equals(Object o) {
         if(o instanceof Tile) {
             Tile t = (Tile)o;
-            return getColor().equals(t.getColor())             && 
-                    getBarrierTop() == t.getBarrierTop()       &&
-                    getBarrierRight() == t.getBarrierRight()   &&
-                    getBarrierBottom() == t.getBarrierBottom() &&
-                    getBarrierLeft() == t.getBarrierLeft()     &&
+            return getBackgroundColor().equals(t.getBackgroundColor())  && 
+                    getBarrierTop() == t.getBarrierTop()                &&
+                    getBarrierRight() == t.getBarrierRight()            &&
+                    getBarrierBottom() == t.getBarrierBottom()          &&
+                    getBarrierLeft() == t.getBarrierLeft()              &&
                     getBalls() == t.getBalls();
         }
         return false;
