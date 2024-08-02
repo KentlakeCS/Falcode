@@ -33,6 +33,13 @@
     <name>Falcode Parent</name>
     <url>https://github.com/KentlakeCS/Falcode</url>
 
+    <developers>
+        <developer>
+            <name>Jackson Brienen</name>
+            <url>https://github.com/jacksonbrienen/</url>
+        </developer>
+    </developers>
+
     <modules>
         <module>data</module>
         <module>data-builder</module>

@@ -38,6 +38,13 @@
 
     <name>Data Builder</name>
 
+    <developers>
+        <developer>
+            <name>Jackson Brienen</name>
+            <url>https://github.com/jacksonbrienen/</url>
+        </developer>
+    </developers>
+
     <licenses>
         <license>
             <name>MIT License</name>

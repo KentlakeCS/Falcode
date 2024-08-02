@@ -38,6 +38,13 @@
 
     <name>Falcode</name>
 
+    <developers>
+        <developer>
+            <name>Jackson Brienen</name>
+            <url>https://github.com/jacksonbrienen/</url>
+        </developer>
+    </developers>
+
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
