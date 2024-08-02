@@ -39,8 +39,6 @@ public abstract class CodeLesson implements Lesson {
 
     public abstract String getTest();
 
-
-    @Override
     /**
      * {@inheritDoc}
      */
