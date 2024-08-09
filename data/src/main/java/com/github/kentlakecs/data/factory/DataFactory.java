@@ -169,7 +169,7 @@ public final class DataFactory {
      * @param endingGrids The ending grids to be matched in order to complete the Lesson.
      * @return A newly constructed {@link VisualLesson}
      */
-    public VisualLesson visualLesson(String name, String startingCode, String hint, String description, Method[] allowedMethods, String[] requiredStrings, Grid[] startingGrids, Grid[] endingGrids) {
+    public static VisualLesson visualLesson(String name, String startingCode, String hint, String description, Method[] allowedMethods, String[] requiredStrings, Grid[] startingGrids, Grid[] endingGrids) {
         if(startingGrids.length == 1 && endingGrids.length != 1) {
             throw new IllegalArgumentException("For 1 startingGrid there can only be 1 ending grid: invalid endingGrids length '" + endingGrids.length + "'");
         }
@@ -226,7 +226,7 @@ public final class DataFactory {
      * @param test A method written that returns a boolean that tests the user written method
      * @return A newly constructed {@link CodeLesson}
      */
-    public CodeLesson codeLesson(String name, String hint, String description, String methodName, Parameter[] parameters, Primitive returnType, String test) {
+    public static CodeLesson codeLesson(String name, String hint, String description, String methodName, Parameter[] parameters, Primitive returnType, String test) {
         if(methodName.equals("test")) {
             throw new IllegalArgumentException("Argument methodName cannot be of value 'test'");
         }
@@ -278,7 +278,7 @@ public final class DataFactory {
      * @param lessons The {@link Lesson}s that make up this unit
      * @return A newly constructed {@link Unit}
      */
-    public Unit unit(String name, Lesson[] lessons) {
+    public static Unit unit(String name, Lesson[] lessons) {
         Set<String> lessonNames = new HashSet<>();
         for(Lesson l: lessons) {
             if(lessonNames.contains(l.getName())) {
