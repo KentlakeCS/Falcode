@@ -21,35 +21,28 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.kentlakecs.data;
+
+package com.github.kentlakecs.data.io;
+
+import com.github.kentlakecs.data.factory.AbstractDataFactory;
+import com.google.gson.JsonDeserializer;
 
 /**
- * Interface for a basic Lesson, will be extended by either {@link CodeLesson} or {@link VisualLesson}
+ * Generic {@link JsonDeserializer} that takes in a {@link AbstractDataFactory} to instantiate deserialized objects
+ * 
  * @author Jackson Brienen
  * @version 1.0
- * @see CodeLesson
- * @see VisualLesson
  */
-public interface Lesson {
+abstract class Deserializer<T> implements JsonDeserializer<T> {
     
-    /**
-     * @return The display name for this Lesson
-     */
-    String getName();
+    protected AbstractDataFactory adf;
 
     /**
-     * @return The Starting Code given to the user for this Lesson
+     * Constructs a new {@link Deserializer}
+     * @param adf the {@link AbstractDataFactory} used to instantiate deserialized objects
      */
-    String getStartingCode();
-
-    /**
-     * @return A hint, if any, for this Lesson
-     */
-    String getHint();
-
-    /**
-     * @return A description, if any, for this Lesson. If no hint is given, a detailed description should be provided
-     */
-    String getDescription();
+    public Deserializer(AbstractDataFactory adf) {
+        this.adf = adf;
+    }
 
 }

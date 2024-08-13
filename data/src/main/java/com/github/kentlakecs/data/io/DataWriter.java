@@ -21,45 +21,46 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.github.kentlakecs.data;
+package com.github.kentlakecs.data.io;
+
+import java.io.*;
+import com.github.kentlakecs.data.*;
+import com.google.gson.*;
 
 /**
- * Lesson to represent a coding challenge.
+ * Writer class to write in json for {@link Unit} arrays to be read in by {@link DataReader}
  * 
  * @author Jackson Brienen
  * @version 1.0
  */
-public abstract class CodeLesson implements Lesson {
-
-    /**
-     * @return The name of the method the user will be writing
-     */
-    public abstract String getMethodName();
-
-    /**
-     * @return The parameter list of the
-     */
-    public abstract Parameter[] getParameters();
-
-    /**
-     * @return The return type
-     */
-    public abstract Primitive getReturnType();
+public final class DataWriter {
     
-    /**
-     * @return The Java Code to test if the user written method is correctly implemented
-     */
-    public abstract String getTest();
+    private final Gson gson;
 
     /**
-     * {@inheritDoc}
+     * Constraucts a new {@link DataWriter}
      */
-    public String getStartingCode() {
-        StringBuilder bld = new StringBuilder(getParameters().length == 0 ? "" : getParameters()[0].toString());
-        for(int i = 1; i < getParameters().length; i++) {
-            bld.append(",").append(getParameters()[i]);
+    public DataWriter() {
+        gson = new GsonBuilder()
+            .registerTypeHierarchyAdapter(Unit.class, new UnitSerializer())
+            .registerTypeHierarchyAdapter(VisualLesson.class, new VisualLessonSerializer())
+            .registerTypeHierarchyAdapter(Grid.class, new GridSerializer())
+            .registerTypeHierarchyAdapter(Tile.class, new TileSerializer())
+            .registerTypeHierarchyAdapter(CodeLesson.class, new CodeLessonSerializer())
+            .registerTypeHierarchyAdapter(Parameter.class, new ParameterSerializer())
+            .create();
+    }
+
+    /**
+     * Writes the given {@link Unit}[] as Json to a given {@link File} 
+     * @param f a json file
+     * @param u a {@link Unit}[]
+     * @throws IOException if file or writing errors occur
+     */
+    public void write(File f, Unit[] u) throws IOException {
+        try(FileWriter fw = new FileWriter(f)) {
+            gson.toJson(u, Unit[].class, fw);
         }
-        return getReturnType() + " " + getMethodName() + "(" + bld.toString() + ") {\n\t\n}";
     }
 
 }

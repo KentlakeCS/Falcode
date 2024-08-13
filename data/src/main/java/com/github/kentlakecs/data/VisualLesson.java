@@ -56,11 +56,4 @@ public abstract class VisualLesson implements Lesson {
      */
     public abstract Grid[] getEndingGrids();
     
-    /**
-     * {@inheritDoc}
-     */
-    public boolean isVisual() {
-        return true;
-    }
-
 }

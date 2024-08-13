@@ -42,7 +42,7 @@ public abstract class Tile {
      * The nullable background color. If this is null {@link Tile#getBackgroundColor()} will return {@link Tile#DEFAULT_COLOR}
      * @return The background Color of the Tile
      */
-    protected abstract Color getColor();
+    public abstract Color getColor();
 
     /**
      * @return true if a top barrier is present; otherwise false
