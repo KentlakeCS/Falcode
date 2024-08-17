@@ -36,23 +36,21 @@ import com.github.kentlakecs.data.*;
  */
 public class MutableCodeLesson extends CodeLesson {
 
-    private String name, hint, description, methodName, test;
+    private String name, description, methodName, test;
     private ArrayList<MutableParameter> parameters;
     private Primitive returnType;
 
     /**
      * Constructs a new {@link MutableCodeLesson}
      * @param name The name of the lesson
-     * @param hint The hint for the lesson
      * @param description The description for the lesson
      * @param methodName The name of the method written by the user
      * @param parameters The list of parameters in the method written by the user
      * @param returnType The primitive return type, or void, of the method written by the user
      * @param test The code used to test the user written method
      */
-    public MutableCodeLesson(String name, String hint, String description, String methodName, MutableParameter[] parameters, Primitive returnType, String test) {
+    public MutableCodeLesson(String name, String description, String methodName, MutableParameter[] parameters, Primitive returnType, String test) {
         this.name = name;
-        this.hint = hint;
         this.description = description;
         this.methodName = methodName;
         this.test = test;
@@ -75,22 +73,6 @@ public class MutableCodeLesson extends CodeLesson {
      */
     public void setName(String name) {
         this.name = name;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getHint() {
-        return hint;
-    }
-
-    /**
-     * Sets the hint of the {@link CodeLesson}
-     * @param hint the hint to be set
-     */
-    public void setHint(String hint) {
-        this.hint = hint;
     }
 
     /**

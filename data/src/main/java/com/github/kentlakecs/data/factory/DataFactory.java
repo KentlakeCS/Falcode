@@ -141,7 +141,7 @@ public final class DataFactory implements AbstractDataFactory {
      * {@inheritDoc}
      */
     @Override
-    public VisualLesson visualLesson(String name, String startingCode, String hint, String description, Method[] allowedMethods, String[] requiredStrings, Grid[] startingGrids, Grid[] endingGrids) {
+    public VisualLesson visualLesson(String name, String startingCode, String description, Method[] allowedMethods, String[] requiredStrings, Grid[] startingGrids, Grid[] endingGrids) {
         if(startingGrids.length == 1 && endingGrids.length != 1) {
             throw new IllegalArgumentException("For 1 startingGrid there can only be 1 ending grid: invalid endingGrids length '" + endingGrids.length + "'");
         }
@@ -158,10 +158,6 @@ public final class DataFactory implements AbstractDataFactory {
 
             public String getStartingCode() {
                 return startingCode;
-            }
-
-            public String getHint() {
-                return hint;
             }
 
             public String getDescription() {
@@ -191,7 +187,7 @@ public final class DataFactory implements AbstractDataFactory {
      * {@inheritDoc}
      */
     @Override
-    public CodeLesson codeLesson(String name, String hint, String description, String methodName, Parameter[] parameters, Primitive returnType, String test) {
+    public CodeLesson codeLesson(String name, String description, String methodName, Parameter[] parameters, Primitive returnType, String test) {
         if(methodName.equals("test")) {
             throw new IllegalArgumentException("Argument methodName cannot be of value 'test'");
         }
@@ -208,10 +204,6 @@ public final class DataFactory implements AbstractDataFactory {
 
             public String getName() {
                 return name;
-            }
-
-            public String getHint() {
-                return hint;
             }
 
             public String getDescription() {

@@ -36,7 +36,7 @@ import com.github.kentlakecs.data.*;
  */
 public class MutableVisualLesson extends VisualLesson{
 
-    private String name, startingCode, hint, description;
+    private String name, startingCode, description;
     private ArrayList<Method> allowedMethods;
     private ArrayList<String> requiredStrings;
     private ArrayList<MutableGrid> startingGrids, endingGrids;
@@ -45,17 +45,15 @@ public class MutableVisualLesson extends VisualLesson{
      * Constructs a new {@link MutableVisualLesson}
      * @param name the name of the Lesson
      * @param startingCode the starting code given to the user for this lesson
-     * @param hint the hint for this lesson
      * @param description the description for this lesson
      * @param allowedMethods the built in methods given to the user
      * @param requiredStrings the strings required for the lesson to be completed
      * @param startingGrids the starting grid(s) in which the user starts with
      * @param endingGrids the ending grid(s) in which the user uses the built in methods to acheive
      */
-    public MutableVisualLesson(String name, String startingCode, String hint, String description, Method[] allowedMethods, String[] requiredStrings, MutableGrid[] startingGrids, MutableGrid[] endingGrids) {
+    public MutableVisualLesson(String name, String startingCode, String description, Method[] allowedMethods, String[] requiredStrings, MutableGrid[] startingGrids, MutableGrid[] endingGrids) {
         this.name = name;
         this.startingCode = startingCode;
-        this.hint = hint;
         this.description = description;
         this.allowedMethods = new ArrayList<>();
         Collections.addAll(this.allowedMethods, allowedMethods);
@@ -97,22 +95,6 @@ public class MutableVisualLesson extends VisualLesson{
      */
     public void setStartingCode(String startingCode) {
         this.startingCode = startingCode;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String getHint() {
-        return hint;
-    }
-
-    /**
-     * Sets the hint of the {@link Lesson}
-     * @param hint the hint to be set
-     */
-    public void setHint(String hint) {
-        this.hint = hint;
     }
 
     /**

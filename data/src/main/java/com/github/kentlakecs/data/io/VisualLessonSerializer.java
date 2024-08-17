@@ -41,7 +41,6 @@ class VisualLessonSerializer implements JsonSerializer<VisualLesson> {
      */
     private static final String NAME = "name",
                                 STARTING_CODE = "startingCode",
-                                HINT = "hint",
                                 DESCRIPTION = "description",
                                 VISUAL = "visual",
                                 ALLOWED_METHODS = "allowedMethods",
@@ -62,7 +61,6 @@ class VisualLessonSerializer implements JsonSerializer<VisualLesson> {
 
         // Lesson
         o.addProperty(NAME, src.getName());
-        o.addProperty(HINT, src.getHint());
         o.addProperty(DESCRIPTION, src.getDescription());
         o.addProperty(VISUAL, true);
         o.addProperty(STARTING_CODE, src.getStartingCode());

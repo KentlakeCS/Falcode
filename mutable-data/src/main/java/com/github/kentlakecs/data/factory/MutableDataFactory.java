@@ -73,7 +73,7 @@ public final class MutableDataFactory implements AbstractDataFactory {
      * {@inheritDoc}
      */
     @Override
-    public MutableVisualLesson visualLesson(String name, String startingCode, String hint, String description, Method[] allowedMethods, String[] requiredStrings, Grid[] startingGrids, Grid[] endingGrids) {
+    public MutableVisualLesson visualLesson(String name, String startingCode, String description, Method[] allowedMethods, String[] requiredStrings, Grid[] startingGrids, Grid[] endingGrids) {
         
         if(!startingGrids.getClass().equals(MutableGrid[].class)) {
             Grid[] oldGrids = startingGrids;
@@ -91,23 +91,23 @@ public final class MutableDataFactory implements AbstractDataFactory {
             }
         }
 
-        return new MutableVisualLesson(name, startingCode, hint, description, allowedMethods, requiredStrings, (MutableGrid[])startingGrids, (MutableGrid[])endingGrids);
+        return new MutableVisualLesson(name, startingCode, description, allowedMethods, requiredStrings, (MutableGrid[])startingGrids, (MutableGrid[])endingGrids);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public MutableCodeLesson codeLesson(String name, String hint, String description, String methodName, Parameter[] parameters, Primitive returnType, String test) {
+    public MutableCodeLesson codeLesson(String name, String description, String methodName, Parameter[] parameters, Primitive returnType, String test) {
         if(parameters.getClass().equals(MutableParameter[].class)) {
-            return new MutableCodeLesson(name, hint, description, methodName, (MutableParameter[])parameters, returnType, test);
+            return new MutableCodeLesson(name, description, methodName, (MutableParameter[])parameters, returnType, test);
         }
         
         MutableParameter[] p = new MutableParameter[parameters.length];
         for(int i = 0; i < p.length; i++) {
             p[i] = new MutableParameter(parameters[i]);
         }
-        return new MutableCodeLesson(name, hint, description, methodName, p, returnType, test);
+        return new MutableCodeLesson(name, description, methodName, p, returnType, test);
     }
 
     /**

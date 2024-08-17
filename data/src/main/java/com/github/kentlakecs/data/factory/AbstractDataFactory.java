@@ -77,7 +77,7 @@ public interface AbstractDataFactory {
      * @param endingGrids The ending grids to be matched in order to complete the Lesson.
      * @return A newly constructed {@link VisualLesson}
      */
-    VisualLesson visualLesson(String name, String startingCode, String hint, String description, Method[] allowedMethods, String[] requiredStrings, Grid[] startingGrids, Grid[] endingGrids);
+    VisualLesson visualLesson(String name, String startingCode, String description, Method[] allowedMethods, String[] requiredStrings, Grid[] startingGrids, Grid[] endingGrids);
 
     /**
      * Constructs a {@link CodeLesson}
@@ -90,7 +90,7 @@ public interface AbstractDataFactory {
      * @param test A method written that returns a boolean that tests the user written method
      * @return A newly constructed {@link CodeLesson}
      */
-    CodeLesson codeLesson(String name, String hint, String description, String methodName, Parameter[] parameters, Primitive returnType, String test);
+    CodeLesson codeLesson(String name, String description, String methodName, Parameter[] parameters, Primitive returnType, String test);
 
     /**
      * Constructs a {@link Unit}

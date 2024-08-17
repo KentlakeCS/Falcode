@@ -42,13 +42,9 @@ public interface Lesson {
      */
     String getStartingCode();
 
-    /**
-     * @return A hint, if any, for this Lesson
-     */
-    String getHint();
 
     /**
-     * @return A description, if any, for this Lesson. If no hint is given, a detailed description should be provided
+     * @return A description for this Lesson
      */
     String getDescription();
 

@@ -40,7 +40,6 @@ class CodeLessonSerializer implements JsonSerializer<CodeLesson> {
      * Constant CodeLesson Json Property names used for {@link JsonObject#add(String, JsonElement)} and {@link JsonObject#addPoperty}
      */
     private static final String NAME = "name",
-                                HINT = "hint",
                                 DESCRIPTION = "description",
                                 VISUAL = "visual",
                                 METHOD_NAME = "methodName",
@@ -61,7 +60,6 @@ class CodeLessonSerializer implements JsonSerializer<CodeLesson> {
 
         // Lesson
         o.addProperty(NAME, src.getName());
-        o.addProperty(HINT, src.getHint());
         o.addProperty(DESCRIPTION, src.getDescription());
         o.addProperty(VISUAL, false);
 
