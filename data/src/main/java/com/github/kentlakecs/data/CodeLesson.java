@@ -29,7 +29,7 @@ package com.github.kentlakecs.data;
  * @author Jackson Brienen
  * @version 1.0
  */
-public abstract class CodeLesson implements Lesson {
+public abstract class CodeLesson extends Lesson {
 
     /**
      * @return The name of the method the user will be writing

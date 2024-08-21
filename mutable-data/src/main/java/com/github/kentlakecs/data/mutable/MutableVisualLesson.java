@@ -34,7 +34,7 @@ import com.github.kentlakecs.data.*;
  * @author Jackson Brienen
  * @version 1.0
  */
-public class MutableVisualLesson extends VisualLesson{
+public class MutableVisualLesson extends VisualLesson {
 
     private String name, startingCode, description;
     private ArrayList<Method> allowedMethods;

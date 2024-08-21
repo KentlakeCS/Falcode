@@ -29,7 +29,7 @@ package com.github.kentlakecs.data;
  * @author Jackson Brienen
  * @version 1.0
  */
-public abstract class VisualLesson implements Lesson {
+public abstract class VisualLesson extends Lesson {
     
     /**
      * @return The {@link Method}s allowed to be used within this Lesson

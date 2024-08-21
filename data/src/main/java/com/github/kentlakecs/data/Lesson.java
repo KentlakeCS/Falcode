@@ -30,22 +30,26 @@ package com.github.kentlakecs.data;
  * @see CodeLesson
  * @see VisualLesson
  */
-public interface Lesson {
+public abstract class Lesson {
     
     /**
      * @return The display name for this Lesson
      */
-    String getName();
+    public abstract String getName();
 
     /**
      * @return The Starting Code given to the user for this Lesson
      */
-    String getStartingCode();
+    public abstract String getStartingCode();
 
 
     /**
      * @return A description for this Lesson
      */
-    String getDescription();
+    public abstract String getDescription();
+
+    public String toString() {
+        return getName();
+    }
 
 }

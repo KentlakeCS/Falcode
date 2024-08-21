@@ -34,7 +34,7 @@ import com.github.kentlakecs.data.*;
  * @author Jackson Brienen
  * @version 1.0
  */
-public class MutableUnit implements Unit {
+public class MutableUnit extends Unit {
 
     private String name;
     private ArrayList<Lesson> lessons;

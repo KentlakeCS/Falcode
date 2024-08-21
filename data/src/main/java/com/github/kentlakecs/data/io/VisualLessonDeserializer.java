@@ -42,7 +42,6 @@ class VisualLessonDeserializer extends Deserializer<VisualLesson> {
      */
     private static final String NAME = "name",
                                 STARTING_CODE = "startingCode",
-                                HINT = "hint",
                                 DESCRIPTION = "description",
                                 ALLOWED_METHODS = "allowedMethods",
                                 REQUIRED_STRINGS = "requiredStrings",
@@ -72,7 +71,6 @@ class VisualLessonDeserializer extends Deserializer<VisualLesson> {
         return adf.visualLesson(
             o.get(NAME).getAsString(),
             o.get(STARTING_CODE).getAsString(),
-            o.get(HINT).getAsString(),
             o.get(DESCRIPTION).getAsString(),
             context.deserialize(o.get(ALLOWED_METHODS), Method[].class),
             context.deserialize(o.get(REQUIRED_STRINGS), String[].class),

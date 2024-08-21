@@ -69,8 +69,7 @@ public interface AbstractDataFactory {
      * Constructs a {@link VisualLesson}
      * @param name The name of the lesson
      * @param startingCode The starting code given to the user for this lesson
-     * @param hint The hint, if any, given to the user
-     * @param description A description of the lesson, if no hint is given a detailed description should be given
+     * @param description A description of the lesson
      * @param allowedMethods The {@link Method}s allowed to be used by the user
      * @param requiredStrings The Strings, if any, required that the user includes in their code
      * @param startingGrids The starting grids used for this lesson.
@@ -82,8 +81,7 @@ public interface AbstractDataFactory {
     /**
      * Constructs a {@link CodeLesson}
      * @param name The name of the lesson
-     * @param hint The hint, if any, given to the user
-     * @param description A description of the lesson, if no hint is given a detailed description should be given
+     * @param description A description of the lesson
      * @param methodName The name of the method the user will write
      * @param parameters The parameters passed to the methed the user will write
      * @param returnType The primitive type (or void) that the user's method should return

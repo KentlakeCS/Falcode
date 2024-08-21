@@ -41,7 +41,6 @@ class CodeLessonDeserializer extends Deserializer<CodeLesson> {
      * Constant CodeLesson Json Property names used for {@link JsonObject#get(String)}
      */
     private static final String NAME = "name",
-                                HINT = "hint",
                                 DESCRIPTION = "description",
                                 METHOD_NAME = "methodName",
                                 PARAMETERS = "parameters",
@@ -69,7 +68,6 @@ class CodeLessonDeserializer extends Deserializer<CodeLesson> {
         
         return adf.codeLesson(
             o.get(NAME).getAsString(),
-            o.get(HINT).getAsString(), 
             o.get(DESCRIPTION).getAsString(),
             o.get(METHOD_NAME).getAsString(),
             context.deserialize(o.get(PARAMETERS), Parameter[].class), 
