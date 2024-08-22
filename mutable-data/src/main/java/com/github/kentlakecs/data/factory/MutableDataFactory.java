@@ -115,7 +115,18 @@ public final class MutableDataFactory implements AbstractDataFactory {
      */
     @Override
     public MutableUnit unit(String name, Lesson[] lessons) {
-        return new MutableUnit(name, lessons);
+        if(lessons instanceof MutableLesson[]) {
+            return new MutableUnit(name, (MutableLesson[])lessons);
+        }
+        MutableLesson[] l = new MutableLesson[lessons.length];
+        for(int i = 0; i < l.length; i++) {
+            if(lessons[i] instanceof CodeLesson) {
+                l[i] = new MutableCodeLesson((CodeLesson)lessons[i]);
+            } else if(lessons[i] instanceof VisualLesson) {
+                l[i] = new MutableVisualLesson((VisualLesson)lessons[i]);
+            }
+        }
+        return new MutableUnit(name, l);
     }
     
 }

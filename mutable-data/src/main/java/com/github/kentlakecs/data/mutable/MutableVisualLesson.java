@@ -67,6 +67,28 @@ public class MutableVisualLesson implements VisualLesson, MutableLesson {
     }
 
     /**
+     * Constructs a new {@link MutableVisualLesson} with the properties of the given {@link VisualLesson}
+     * @param vl
+     */
+    public MutableVisualLesson(VisualLesson vl) {
+        this.name = vl.getName();
+        this.startingCode = vl.getStartingCode();
+        this.description = vl.getDescription();
+        this.allowedMethods = new ArrayList<>();
+        Collections.addAll(this.allowedMethods, vl.getAllowedMethods());
+        this.requiredStrings = new ArrayList<>();
+        Collections.addAll(this.requiredStrings, vl.getRequiredStrings());
+        this.startingGrids = new ArrayList<>();
+        for(int i = 0; i < vl.getStartingGrids().length; i++) {
+            this.startingGrids.add(new MutableGrid(vl.getStartingGrids()[i]));
+        }
+        this.endingGrids = new ArrayList<>();
+        for(int i = 0; i < vl.getEndingGrids().length; i++) {
+            this.endingGrids.add(new MutableGrid(vl.getEndingGrids()[i]));
+        }
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override

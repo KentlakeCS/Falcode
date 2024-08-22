@@ -63,6 +63,23 @@ public class MutableCodeLesson implements CodeLesson, MutableLesson {
     }
 
     /**
+     * Constructs a new {@link MutableCodeLesson} with the properties of the given {@link CodeLesson}
+     * @param cl
+     */
+    public MutableCodeLesson(CodeLesson cl) {
+        this.name = cl.getName();
+        this.startingCode = cl.getStartingCode();
+        this.description = cl.getDescription();
+        this.methodName = cl.getMethodName();
+        this.test = cl.getTest();
+        this.parameters = new ArrayList<>();
+        for(int i = 0; i < cl.getParameters().length; i++) {
+            parameters.add(new MutableParameter(cl.getParameters()[i]));
+        }
+        this.returnType = cl.getReturnType();
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override

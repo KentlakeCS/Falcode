@@ -38,9 +38,9 @@ import com.github.kentlakecs.data.util.DataUtils;
 public class MutableUnit implements Unit {
 
     private String name;
-    private ArrayList<Lesson> lessons;
+    private ArrayList<MutableLesson> lessons;
 
-    public MutableUnit(String name, Lesson[] lessons) {
+    public MutableUnit(String name, MutableLesson[] lessons) {
         this.name = name;
         this.lessons = new ArrayList<>();
         Collections.addAll(this.lessons, lessons);
@@ -73,7 +73,7 @@ public class MutableUnit implements Unit {
     /**
      * @return An ArrayList of Lessons, assumed to be either {@link MutableCodeLesson} or {@link MutableVisualLesson}
      */
-    public ArrayList<Lesson> getLessonList() {
+    public ArrayList<MutableLesson> getLessonList() {
         return lessons;
     }
 
