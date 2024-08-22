@@ -98,16 +98,16 @@ public final class MutableDataFactory implements AbstractDataFactory {
      * {@inheritDoc}
      */
     @Override
-    public MutableCodeLesson codeLesson(String name, String description, String methodName, Parameter[] parameters, Primitive returnType, String test) {
+    public MutableCodeLesson codeLesson(String name, String startingCode, String description, String methodName, Parameter[] parameters, Primitive returnType, String test) {
         if(parameters.getClass().equals(MutableParameter[].class)) {
-            return new MutableCodeLesson(name, description, methodName, (MutableParameter[])parameters, returnType, test);
+            return new MutableCodeLesson(name, startingCode, description, methodName, (MutableParameter[])parameters, returnType, test);
         }
         
         MutableParameter[] p = new MutableParameter[parameters.length];
         for(int i = 0; i < p.length; i++) {
             p[i] = new MutableParameter(parameters[i]);
         }
-        return new MutableCodeLesson(name, description, methodName, p, returnType, test);
+        return new MutableCodeLesson(name, startingCode, description, methodName, p, returnType, test);
     }
 
     /**

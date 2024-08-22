@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import com.github.kentlakecs.data.*;
+import com.github.kentlakecs.data.util.DataUtils;
 
 /**
  * Mutable version of the {@link CodeLesson} class
@@ -34,23 +35,25 @@ import com.github.kentlakecs.data.*;
  * @author Jackson Brienen
  * @version 1.0
  */
-public class MutableCodeLesson extends CodeLesson {
+public class MutableCodeLesson implements CodeLesson, MutableLesson {
 
-    private String name, description, methodName, test;
+    private String name, startingCode, description, methodName, test;
     private ArrayList<MutableParameter> parameters;
     private Primitive returnType;
 
     /**
      * Constructs a new {@link MutableCodeLesson}
      * @param name The name of the lesson
+     * @param startingCode the starting code given to the user for this lesson
      * @param description The description for the lesson
      * @param methodName The name of the method written by the user
      * @param parameters The list of parameters in the method written by the user
      * @param returnType The primitive return type, or void, of the method written by the user
      * @param test The code used to test the user written method
      */
-    public MutableCodeLesson(String name, String description, String methodName, MutableParameter[] parameters, Primitive returnType, String test) {
+    public MutableCodeLesson(String name, String startingCode, String description, String methodName, MutableParameter[] parameters, Primitive returnType, String test) {
         this.name = name;
+        this.startingCode = startingCode;
         this.description = description;
         this.methodName = methodName;
         this.test = test;
@@ -68,9 +71,9 @@ public class MutableCodeLesson extends CodeLesson {
     }
 
     /**
-     * Sets the name of the {@link CodeLesson}
-     * @param name the name to be set
+     * {@inheritDoc}
      */
+    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -84,9 +87,9 @@ public class MutableCodeLesson extends CodeLesson {
     }
 
     /**
-     * Sets the description of the {@link CodeLesson}
-     * @param description the description to be set
+     * {@inheritDoc}
      */
+    @Override
     public void setDescription(String description) {
         this.description = description;
     } 
@@ -152,6 +155,41 @@ public class MutableCodeLesson extends CodeLesson {
      */
     public void setTest(String test) {
         this.test = test;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String getStartingCode() {
+        return startingCode;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setStartingCode(String startingCode) {
+        this.startingCode = startingCode;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof CodeLesson) {
+            return DataUtils.equals(this, (CodeLesson)o);
+        }
+        return false;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return getName();
     }
     
 }

@@ -45,6 +45,7 @@ class CodeLessonSerializer implements JsonSerializer<CodeLesson> {
                                 METHOD_NAME = "methodName",
                                 PARAMETERS = "parameters",
                                 RETURN_TYPE = "returnType",
+                                STARTING_CODE = "startingCode",
                                 TEST = "test";
 
     /**
@@ -62,6 +63,7 @@ class CodeLessonSerializer implements JsonSerializer<CodeLesson> {
         o.addProperty(NAME, src.getName());
         o.addProperty(DESCRIPTION, src.getDescription());
         o.addProperty(VISUAL, false);
+        o.addProperty(STARTING_CODE, src.getStartingCode());
 
         // Code Lesson
         o.addProperty(METHOD_NAME, src.getMethodName());

@@ -29,37 +29,26 @@ package com.github.kentlakecs.data;
  * @author Jackson Brienen
  * @version 1.0
  */
-public abstract class CodeLesson extends Lesson {
+public interface CodeLesson extends Lesson {
 
     /**
      * @return The name of the method the user will be writing
      */
-    public abstract String getMethodName();
+    String getMethodName();
 
     /**
      * @return The parameter list of the
      */
-    public abstract Parameter[] getParameters();
+    Parameter[] getParameters();
 
     /**
      * @return The return type
      */
-    public abstract Primitive getReturnType();
+    Primitive getReturnType();
     
     /**
      * @return The Java Code to test if the user written method is correctly implemented
      */
-    public abstract String getTest();
-
-    /**
-     * {@inheritDoc}
-     */
-    public String getStartingCode() {
-        StringBuilder bld = new StringBuilder(getParameters().length == 0 ? "" : getParameters()[0].toString());
-        for(int i = 1; i < getParameters().length; i++) {
-            bld.append(",").append(getParameters()[i]);
-        }
-        return getReturnType() + " " + getMethodName() + "(" + bld.toString() + ") {\n\t\n}";
-    }
+    String getTest();
 
 }

@@ -29,17 +29,17 @@ package com.github.kentlakecs.data;
  * @author Jackson Brienen
  * @version 1.0
  */
-public abstract class VisualLesson extends Lesson {
+public interface VisualLesson extends Lesson {
     
     /**
      * @return The {@link Method}s allowed to be used within this Lesson
      */
-    public abstract Method[] getAllowedMethods();
+    Method[] getAllowedMethods();
 
     /**
      * @return The Strings required to be in the code for this Lesson to be completed successfully
      */
-    public abstract String[] getRequiredStrings();
+    String[] getRequiredStrings();
 
     /**
      * The starting grids used for this lesson.
@@ -47,13 +47,13 @@ public abstract class VisualLesson extends Lesson {
      * If many starting grids are given, either 1 ending grid or the same number of ending grids are expected.
      * @return The starting grids used for this lesson
      */
-    public abstract Grid[] getStartingGrids();
+    Grid[] getStartingGrids();
 
     /**
      * The ending grids to be matched in order to complete the Lesson.
      * If multiple ending grids are given, it is expected to match the number of starting grids given.
      * @return The ending grids to be matched in order to complete the Lesson.
      */
-    public abstract Grid[] getEndingGrids();
+    Grid[] getEndingGrids();
     
 }

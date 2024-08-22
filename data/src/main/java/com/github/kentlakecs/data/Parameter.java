@@ -48,4 +48,12 @@ public abstract class Parameter {
         return getType() + " " + getName();
     }
 
+    public boolean equals(Object o) {
+        if(o instanceof Parameter) {
+            Parameter p = (Parameter)o;
+            return getType() == p.getType() && getName().equals(p.getName()); 
+        }
+        return false;
+    }
+
 }

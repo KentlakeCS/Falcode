@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import com.github.kentlakecs.data.*;
+import com.github.kentlakecs.data.util.DataUtils;
 
 /**
  * Mutable version of the {@link Unit} class
@@ -34,7 +35,7 @@ import com.github.kentlakecs.data.*;
  * @author Jackson Brienen
  * @version 1.0
  */
-public class MutableUnit extends Unit {
+public class MutableUnit implements Unit {
 
     private String name;
     private ArrayList<Lesson> lessons;
@@ -74,6 +75,25 @@ public class MutableUnit extends Unit {
      */
     public ArrayList<Lesson> getLessonList() {
         return lessons;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof Unit) {
+            return DataUtils.equals(this, (Unit)o);
+        }
+        return false;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return getName();
     }
     
 }

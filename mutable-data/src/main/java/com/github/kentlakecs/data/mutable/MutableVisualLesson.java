@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import com.github.kentlakecs.data.*;
+import com.github.kentlakecs.data.util.DataUtils;
 
 /**
  * Mutable version of the {@link VisualLesson} class
@@ -34,7 +35,7 @@ import com.github.kentlakecs.data.*;
  * @author Jackson Brienen
  * @version 1.0
  */
-public class MutableVisualLesson extends VisualLesson {
+public class MutableVisualLesson implements VisualLesson, MutableLesson {
 
     private String name, startingCode, description;
     private ArrayList<Method> allowedMethods;
@@ -74,9 +75,9 @@ public class MutableVisualLesson extends VisualLesson {
     }
     
     /**
-     * Sets the name of the {@link Lesson}
-     * @param name the name to be set
+     * {@inheritDoc}
      */
+    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -90,9 +91,9 @@ public class MutableVisualLesson extends VisualLesson {
     }
 
     /**
-     * Sets the startingCode of the {@link Lesson}
-     * @param startingCode the startingCode to be set
+     * {@inheritDoc}
      */
+    @Override
     public void setStartingCode(String startingCode) {
         this.startingCode = startingCode;
     }
@@ -106,9 +107,9 @@ public class MutableVisualLesson extends VisualLesson {
     }
 
     /**
-     * Sets the description of the {@link Lesson}
-     * @param description the description to be set
+     * {@inheritDoc}
      */
+    @Override
     public void setDescription(String description) {
         this.description = description;
     }
@@ -171,6 +172,26 @@ public class MutableVisualLesson extends VisualLesson {
      */
     public ArrayList<MutableGrid> getEndingGridsList() {
         return endingGrids;
+    }
+
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean equals(Object o) {
+        if(o instanceof VisualLesson) {
+            return DataUtils.equals(this, (VisualLesson)o);
+        }
+        return false;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return getName();
     }
     
 }

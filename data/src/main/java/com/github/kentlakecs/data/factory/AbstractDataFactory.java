@@ -81,6 +81,7 @@ public interface AbstractDataFactory {
     /**
      * Constructs a {@link CodeLesson}
      * @param name The name of the lesson
+     * @param startingCode The starting code given to the user for this lesson
      * @param description A description of the lesson
      * @param methodName The name of the method the user will write
      * @param parameters The parameters passed to the methed the user will write
@@ -88,7 +89,7 @@ public interface AbstractDataFactory {
      * @param test A method written that returns a boolean that tests the user written method
      * @return A newly constructed {@link CodeLesson}
      */
-    CodeLesson codeLesson(String name, String description, String methodName, Parameter[] parameters, Primitive returnType, String test);
+    CodeLesson codeLesson(String name, String startingCode, String description, String methodName, Parameter[] parameters, Primitive returnType, String test);
 
     /**
      * Constructs a {@link Unit}

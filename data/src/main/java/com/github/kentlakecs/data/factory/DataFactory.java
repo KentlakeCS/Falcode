@@ -28,6 +28,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.github.kentlakecs.data.*;
+import com.github.kentlakecs.data.util.DataUtils;
 
 /**
  * Singleton class used to construct immuatable instances of the data classes
@@ -180,6 +181,17 @@ public final class DataFactory implements AbstractDataFactory {
                 return endingGrids;
             }
 
+            public boolean equals(Object o) {
+                if(o instanceof VisualLesson) {
+                    return DataUtils.equals(this, (VisualLesson)o);
+                }
+                return false;
+            }
+
+            public String toString() {
+                return getName();
+            }
+
         };
     }
 
@@ -187,7 +199,7 @@ public final class DataFactory implements AbstractDataFactory {
      * {@inheritDoc}
      */
     @Override
-    public CodeLesson codeLesson(String name, String description, String methodName, Parameter[] parameters, Primitive returnType, String test) {
+    public CodeLesson codeLesson(String name, String startingCode, String description, String methodName, Parameter[] parameters, Primitive returnType, String test) {
         if(methodName.equals("test")) {
             throw new IllegalArgumentException("Argument methodName cannot be of value 'test'");
         }
@@ -210,6 +222,10 @@ public final class DataFactory implements AbstractDataFactory {
                 return description;
             }
 
+            public String getStartingCode() {
+                return startingCode;
+            }
+
             public String getMethodName() {
                 return methodName;
             }
@@ -224,6 +240,17 @@ public final class DataFactory implements AbstractDataFactory {
 
             public String getTest() {
                 return test;
+            }
+
+            public boolean equals(Object o) {
+                if(o instanceof CodeLesson) {
+                    return DataUtils.equals(this, (CodeLesson)o);
+                }
+                return false;
+            }
+
+            public String toString() {
+                return getName();
             }
             
         };
@@ -251,6 +278,17 @@ public final class DataFactory implements AbstractDataFactory {
 
             public Lesson[] getLessons() {
                 return lessons;
+            }
+
+            public boolean equals(Object o) {
+                if(o instanceof Unit) {
+                    return DataUtils.equals(this, (Unit)o);
+                }
+                return false;
+            }
+
+            public String toString() {
+                return getName();
             }
             
         };

@@ -45,6 +45,7 @@ class CodeLessonDeserializer extends Deserializer<CodeLesson> {
                                 METHOD_NAME = "methodName",
                                 PARAMETERS = "parameters",
                                 RETURN_TYPE = "returnType",
+                                STARTING_CODE = "startingCode",
                                 TEST = "test";
     /**
      * Constructs a new {@link CodeLessonDeserializer}
@@ -68,6 +69,7 @@ class CodeLessonDeserializer extends Deserializer<CodeLesson> {
         
         return adf.codeLesson(
             o.get(NAME).getAsString(),
+            o.get(STARTING_CODE).getAsString(),
             o.get(DESCRIPTION).getAsString(),
             o.get(METHOD_NAME).getAsString(),
             context.deserialize(o.get(PARAMETERS), Parameter[].class), 

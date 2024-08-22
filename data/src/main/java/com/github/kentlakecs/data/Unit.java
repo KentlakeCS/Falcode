@@ -24,25 +24,21 @@
 package com.github.kentlakecs.data;
 
 /**
- * A class representing a collection of Lessons
+ * An interface representing a collection of Lessons
  * 
  * @author Jackson Brienen
  * @version 1.0
  */
-public abstract class Unit {
+public interface Unit {
     
     /**
      * @return The name of the Unit
      */
-    public abstract String getName();
+    String getName();
 
     /**
      * @return The {@link Lesson}s contained by this Unit
      */
-    public abstract Lesson[] getLessons();
-
-    public String toString() {
-        return getName();
-    }
+    Lesson[] getLessons();
 
 }
