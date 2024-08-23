@@ -65,7 +65,7 @@ public final class DataUtils {
         }
 
         for(int i = 0; i < l1.length; i++) {
-            if(!equals(l1[1], l2[1])) {
+            if(!equals(l1[i], l2[i])) {
                 return false;
             }
         }
